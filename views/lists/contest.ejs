@@ -1,0 +1,39 @@
+<%- layout("./layouts/boilerplate") %>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center text-success">🎉 Join the Contest and Win Big!</h1>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title text-center">Token Number</h4>
+                <p class="text-center" style="font-size: 2rem; font-weight: bold; color: #2b70e9;">Your Token Number: <%= contest.tokenNumber %></p>
+                
+                <p class="card-text text-center">
+                    <%= contest.message %>
+                </p>
+
+                <div class="text-center mt-3">
+                    <h4 class="text-danger">Prizes are:</h4>
+                    <strong>Gift Cards:</strong>
+                    <ul class="list-unstyled" style="color:chartreuse; font-size:1.2rem; font-weight:700;">
+                            <li>₹500 Amazon Gift Card</li>
+                            <li>₹1000 Flipkart Gift Card</li>
+                            <li>₹2000 Paytm Gift Card</li>
+                            <li>₹1500 BookMyShow Gift Card</li>
+                            <li>₹3000 Zomato Gift Card</li>
+                        </ul>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <p>Make sure to keep your token number safe, as it will be used to announce the winner!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4 mb-5">
+        <p class="mb-5">Contest ends soon! Stay tuned for the results.</p>
+    </div>
+</body>
+

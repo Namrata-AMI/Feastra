@@ -1,0 +1,146 @@
+<%- layout("./layouts/boilerplate") %>
+
+<div class="container">
+
+      <div class="mt-5">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMenuModal">Add Menu</button>
+      
+        <div class="modal fade" id="addMenuModal" tabindex="-1" aria-labelledby="addMenuLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form method="post" action="/order">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addMenuLabel">Add Menu Item</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Menu Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select" id="category" name="category" required>
+                      <option value="Appetizers">Appetizers</option>
+                      <option value="Main Course">Main Course</option>
+                      <option value="Desserts">Desserts</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price" name="price" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="availability" class="form-label">Availability</label>
+                    <input type="checkbox" id="availability" name="availability">
+                  </div>
+                  <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="url" class="form-control" id="image" name="image" required>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Add Menu</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Appetizers -->
+  <h2 class="mt-4 mb-3">Appetizers</h2>
+  <div class="row">
+    <% Menuitems.filter(menu => menu.category === "Appetizers").forEach(menu => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card mb-4" style="width: 100%; padding:1rem; height:100%;">
+          <img src="<%= menu.image %>" class="card-img-top menuimg" alt="<%= menu.name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= menu.name %></h5>
+            <p class="card-text">Price: ₹<%= menu.price %></p>
+            <!-- Add to Cart Button with Modal Trigger -->
+      <% if (menu.availabiltiy) { %>
+        <form method="POST" action="/order">
+          <input type="hidden" name="menuId" value="<%= menu._id %>">
+          <label for="quantity" class="form-label">Quantity:</label>
+          <input type="number" name="quantity" id="quantity" min="1" class="form-control" required><br>
+          <button class="btn btn-dark"> Add to Cart</button>
+        </form>
+        
+        <% } else { %>
+          <button class="btn btn-secondary" disabled>Out of Stock</button><br>
+        <% } %>
+            <a href="/menu/<%= menu._id %>" style="margin-top: 15px; display: inline-block;">
+                <i class="fa-solid fa-pen-to-square" style="color: #520000; font-size: 1rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  <!-- Main Course -->
+  <h2 class="mt-4">Main Course</h2>
+  <div class="row">
+    <% Menuitems.filter(menu => menu.category === "Main Course").forEach(menu => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card mb-4" style="width: 100%; padding:1rem; height:100%;">
+          <img src="<%= menu.image %>" class="card-img-top menuimg" alt="<%= menu.name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= menu.name %></h5>
+            <p class="card-text">Price: ₹<%= menu.price %></p>
+            <% if (menu.availabiltiy) { %>
+              <form method="POST" action="/order">
+                <input type="hidden" name="menuId" value="<%= menu._id %>">
+                <label for="quantity" class="form-label">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" min="1" class="form-control" required><br>
+                <button class="btn btn-dark"> Add to Cart</button>
+              </form>
+
+            <% } else { %>
+              <button class="btn btn-secondary" disabled>Out of Stock</button><br>
+            <% } %>         
+              
+              <a href="/menu/<%= menu._id %>" style="margin-top: 15px; display: inline-block;">
+                <i class="fa-solid fa-pen-to-square" style="color: #520000; font-size: 1rem;"></i>
+            </a>
+            </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  <!-- Desserts -->
+  <h2 class="mt-4">Desserts</h2>
+  <div class="row">
+    <% Menuitems.filter(menu => menu.category === "Desserts").forEach(menu => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card mb-4" style="width: 100%; padding:1rem; height:100%;">
+          <img src="<%= menu.image %>" class="card-img-top menuimg" alt="<%= menu.name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= menu.name %></h5>
+            <p class="card-text">Price: ₹<%= menu.price %></p>
+            <% if (menu.availabiltiy) { %>
+             
+              <form method="POST" action="/order">
+                <input type="hidden" name="menuId" value="<%= menu._id %>">
+                <label for="quantity" class="form-label">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" min="1" class="form-control" required><br>
+                <button class="btn btn-dark"> Add to Cart</button>
+              </form>
+               
+             
+            <% } else { %>
+              <button class="btn btn-secondary" disabled>Out of Stock</button><br>
+            <% } %>
+            
+              <a href="/menu/<%= menu._id %>" style="margin-top: 15px; display: inline-block;">
+                <i class="fa-solid fa-pen-to-square" style="color: #520000; font-size: 1rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>

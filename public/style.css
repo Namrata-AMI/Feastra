@@ -1,0 +1,181 @@
+.body{
+    margin: 0;
+    font-family: "Playwrite DE Grund", cursive !important;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
+}
+
+.navbar-brand img{
+    width: 100% !important;
+    height:5rem !important;
+}
+
+.fa-compass{
+    color: #118ab2;
+    font-size: 2rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color:#222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-socials, .f-info-links, .f-info-brand{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    font-size: 1.3rem;
+    margin-right: 1rem;
+}
+
+
+.f-info{
+    text-align:center;
+    height:8rem;
+    display: flex;
+    background-color: #ebebeb;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: space-evenly;
+}
+
+.explore{
+    font-size: 2rem !important;
+}
+
+.heads h1{
+    color: #118ab2;
+    font-size: 3rem !important;
+    margin:2rem;
+    text-align: left;   
+}
+
+.app_name{
+    color:#800020;
+    font-family:monospace;
+    font-size: 4rem;
+}
+
+.btn{
+    background-color: #800020 !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.index {
+    background-image: url('./assets/eat.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+}
+
+.text {
+    text-align: left !important;
+    color:#6e6a6a;
+    max-width: 500px !important;
+    margin: 3rem !important;
+    margin-top: 1rem;
+}
+
+.text h1{
+    color:#222222;
+    font-size: 3.6rem;
+    font-weight: 700;
+}
+
+.text p {
+    font-size: 1.3rem !important;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.index .btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+}
+
+.index .btn-primary {
+    background-color: #800020; /* Rich, food-themed red */
+    border: none;
+}
+
+.index .btn-secondary {
+    background-color: #f1f1f1;
+    color:black;
+    border: none;
+}
+
+.index .btn-primary:hover {
+    background-color: #A52A2A;
+    color:#ddd;
+}
+
+.index .btn-secondary:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.menuimg{
+    width:100% !important;
+    height:18rem;
+}
+
+.Menu-link{
+    text-decoration: none !important;
+    color:#000;
+}
+
+.delete-btn{
+    margin-left: 10rem;
+    justify-content: flex-end;
+    margin-top: -7rem;
+}
+
+.walletimg{
+    display: block;
+    width: 90%; 
+    height:20rem;
+    border-radius: 2rem;
+    margin-top: 1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.contest-link {
+    text-decoration: none;
+    color: crimson;
+    font-weight: 800;
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+@keyframes bounce {
+from {background-color: red;}
+  to {background-color: yellow;}
+}
+

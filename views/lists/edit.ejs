@@ -1,0 +1,64 @@
+<%- layout("/layouts/boilerplate") %>
+
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+
+                <div class="card shadow-lg border-light">
+                    <div class="card-header text-white text-center" style="background-color:#800020;">
+                        <h3>Edit Your Menu</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/menu/<%= menu._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data"> 
+
+                            <!-- Menu Name -->
+                            <div class="mb-3">  
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" name="name" value="<%= menu.name %>" class="form-control" required>
+                                <div class="valid-feedback">Title looks good!</div>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <select class="form-select" id="category" name="category" required>
+                                    <option value="Appetizers" <%= menu.category === "Appetizers" && "selected" %>>Appetizers</option>
+                                    <option value="Main Course" <%= menu.category === "Main Course" && "selected" %>>Main Course</option>
+                                    <option value="Desserts" <%= menu.category === "Desserts" && "selected" %>>Desserts</option>
+                                </select>
+                            </div>
+
+                            <!-- Original Image -->
+                            <div class="mb-3 text-center">
+                                <label class="form-label">Original Menu Image</label><br>
+                                <img src="<%= originalImage %>" class="img-fluid rounded" style="max-width: 200px;">
+                            </div>
+
+                            <!-- Upload New Image -->
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Upload new Image</label>
+                                <input type="file" name="image" class="form-control" >
+                            </div>
+
+                            <!-- Price -->
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="price" class="form-label">Price</label>
+                                    <input type="number" name="price" value="<%= menu.price %>" class="form-control" required>
+                                    <div class="invalid-feedback">Price must be valid!</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-dark edit-btn">Edit</button>
+                        </form>
+                         <div class="d-flex justify-content-between align-items-center mt-4"> 
+                            <form action="/menu/<%= menu._id %>?_method=DELETE" method="post">
+                                <button class="btn btn-danger delete-btn">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

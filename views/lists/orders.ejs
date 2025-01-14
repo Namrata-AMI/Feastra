@@ -1,0 +1,66 @@
+<%- layout("./layouts/boilerplate") %>
+
+<div class="container mt-5 mb-5">
+    <div class="card shadow-lg" style="border-radius: 15px;">
+        <div class="card-body">
+            <div class="row">
+                <!-- Left Section: Order Details -->
+                <div class="col-md-6">
+                    <div>
+                        <h3 class="walhead">My Orders</h3>
+                        <img src="/assets/img.jpg" class="walletimg m-1" style="border-radius: 8px;"> 
+                    </div>
+                    
+                    <h4 class="mb-3 mt-4">Orders</h4>
+                    <hr>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <% orders.forEach(function(order) { %>
+                            <li>
+                                <div class="accordion" id="accordionOrders<%= order._id %>">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading<%= order._id %>">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= order._id %>" aria-expanded="true" aria-controls="collapse<%= order._id %>">
+                                                <i class="fa-solid fa-wallet" style="color: #5794ff; font-size:1.4rem;"></i>
+                                                &#8377;<%= order.totalAmount %> - <%= order.items.length %> Items (<%= order.status %>)     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Transaction Date:<%= order.createdAt.toLocaleDateString() %> <!-- Displaying the createdAt timestamp -->
+
+                                            </button>
+                                        </h2>
+                                        <div id="collapse<%= order._id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= order._id %>" data-bs-parent="#accordionOrders<%= order._id %>">
+                                            <div class="accordion-body">
+                                                <h5>Order Details:</h5>
+                                                <ul style="list-style-type: none; padding-left: 0;">
+                                                    <% order.items.forEach(function(item) { %>
+                                                        <li><strong><%= item.menuItem || "N/A" %></strong> - Quantity: <%= item.quantity || 0 %> </li>
+                                                    <% }) %>
+                                                </ul>
+                                                <hr>
+                                                <p><strong>Total Price:</strong> &#8377;<%= order.totalAmount %></p>
+                                                <p><strong>Status:</strong> <%= order.status %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+
+                <!-- Right Section: Additional Information -->
+                <div class="col-md-6">
+                        <p style="font-size:1.2rem;"><strong style="font-size:2.6rem; color:#5794ff">Coming Soon:<br></strong> We're working on adding new features! Stay tuned for updates.</p>
+                        <div class="col-md-10">
+                            <div class="mt-5">
+                                <h4>🎉 Exciting Offers & News!</h4>
+                                <p><strong>Exclusive Offer:</strong> Get 30% off on your next order with code <strong>EXCLUSIVE30</strong> - Today only!</p>
+                                <p><strong>Today's Motivation:</strong> "The future belongs to those who believe in the beauty of their dreams." – Eleanor Roosevelt</p>
+                                <p><strong>💥 Challenge Time:</strong> Join the #BestOrderChallenge and stand a chance to win a ₹500 gift card! <<p><strong>💥 Challenge Time:</strong> Join the #BestOrderChallenge and stand a chance to win a ₹500 gift card! <a href="/contest" class="contest-link">Enter Now</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feastra</title>
+</head>
+
+<body>
+      
+      <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+          <div class="container-fluid">         
+            <a class="navbar-brand" href="/"><i class="fa-solid fa-bowl-food" style="color: #800020; font-size:2rem;"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link explore" href="/">Feastra</a>
+              </div>
+  
+      
+              <div class="navbar-nav ms-auto links">
+                <% if(!newUser){ %>
+                  <a class="nav-link" href="/register"><b>Sign-Up</b></a>
+                  <a class="nav-link" href="/login"><b>Log-In</b></a>
+             <% } %>
+      
+             
+           <%  if(newUser){ %>
+                  <a class="nav-link" href="/logout">Log Out</a>
+            <% } %>
+              
+      
+              </div>
+            </div>
+          </div>
+        </nav>
+      
+      
+
+</body>
+</html>

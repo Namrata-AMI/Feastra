@@ -1,0 +1,19 @@
+<%- layout("./layouts/boilerplate") %>
+
+<body>
+
+    <div class="index">
+        <div class="text" style="text-align: left;">
+            <h1>Welcome to Feastra</h1>
+
+            <% if (newUser) { %>
+                <p class="lead">Hello, <%= newUser.username %>! Explore our menu and enjoy your dining experience.</p>
+                <a href="/menu" class="btn btn-primary me-3">View Menu</a>
+                <a href="/orders" class="btn btn-secondary">View Orders</a>
+            <% } else { %>
+                <p class="lead">Discover amazing food and place your order easily!</p>
+                <a href="/register" class="btn btn-primary">Get Started</a>
+            <% } %>
+        </div>
+    </div>
+</body>
