@@ -1,7 +1,7 @@
 # Feastra
 This is a Hotel Management System built using Node.js, Express.js, MongoDB, and EJS.
 
-<h1>Hotel Management System<h1>
+<h1>Hotel Management System</h1>
 This is a Hotel Management System built using Node.js, Express.js, MongoDB, and EJS. The system provides a convenient way to manage hotel operations, including adding, searching, and filtering menu items, and handling orders for customers. It is designed to be easy to use and provides a simple interface for the hotel staff to manage daily tasks efficiently.
 
 Features
