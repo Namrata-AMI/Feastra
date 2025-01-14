@@ -120,6 +120,7 @@ app.get("/menu",async(req,res)=>{
     res.render("lists/menu.ejs",{Menuitems});
 })
 
+// add new menu //
 app.post("/menu",async(req,res)=>{
     if(!req.isAuthenticated()){
         req.flash("error","Log in first!");
@@ -139,6 +140,7 @@ app.post("/menu",async(req,res)=>{
     }
 });
 
+// access menu//
 app.get("/menu/:id",async(req,res)=>{
     if(!req.isAuthenticated()){
         req.flash("error","Log in first!");
@@ -280,7 +282,7 @@ app.get('/contest', (req, res) => {
   
 
 // logout route 
-app.post("/logout",(req,res)=>{
+app.get("/logout",(req,res)=>{
     console.log("Logout route accessed");
     req.logOut((err)=>{
         if(err){
